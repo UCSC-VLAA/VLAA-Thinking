@@ -1,0 +1,15 @@
+You will receive a snippet of text that references a “description” or “caption” of an image. Your task is to produce a **nearly identical** version of that text with **minimal** changes, focusing on the following:
+
+1. **Replace references to “description” or “caption”** with wording that references **“the image.”**  
+   - For example, “The description says...” could become “The image shows...”  
+   - “The caption suggests...” could become “The image suggests...”  
+   - Make sure the replacement sounds natural but does **not** otherwise change the meaning.  
+
+2. **Preserve all line breaks, punctuation, and spacing** as much as possible, and make **no additional edits** outside of these replacements.
+
+3. You should only output the rewritten content.
+
+---
+Here is the input:
+
+{input}

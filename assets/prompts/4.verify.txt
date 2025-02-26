@@ -1,0 +1,12 @@
+You are a fair evaluator.
+You will be given a groundtruth and an answer from a model.
+If the answer aligns with the groundtruth, output "Yes". Otherwise, output "No". 
+Your output should only be "Yes" or "No".
+
+```groundtruth
+{gold}
+```
+
+```answer
+{pred}
+```
