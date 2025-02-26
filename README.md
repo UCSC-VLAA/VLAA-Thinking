@@ -24,6 +24,7 @@ These datasets cover questions from different domains (math, general), and quest
 
 
 <details><summary>CLEVR-Math</summary>
+<img src="assets/examples/clevr_math-CLEVR_train_027977.png"  align=center />
 
 ```plaintext
 {
@@ -43,6 +44,7 @@ These datasets cover questions from different domains (math, general), and quest
 
 
 <details><summary>GeoQA</summary>
+<img src="assets/examples/geoqa170k-geoqa_plus-2905.png" align=center />
 
 ```plaintext
 {
@@ -63,6 +65,7 @@ These datasets cover questions from different domains (math, general), and quest
 
 
 <details><summary>Synthesis</summary>
+<img src="assets/examples/synthesis-gen_func-func_sine_22135407_qtmb.png" align=center />
 
 ```plaintext
 {
@@ -82,6 +85,7 @@ These datasets cover questions from different domains (math, general), and quest
 
 
 <details><summary>ArxivQA</summary>
+<img src="assets/examples/arxivqa-1704.01566_1.jpg"  align=center />
 
 ```plaintext
 {
@@ -102,6 +106,7 @@ These datasets cover questions from different domains (math, general), and quest
 
 
 <details><summary>ALLaVA-LAION</summary>
+<img src="assets/examples/allava_laion-100760552.jpeg"  align=center />
 
 ```
 {
@@ -119,11 +124,6 @@ These datasets cover questions from different domains (math, general), and quest
 }
 ```
 </details>
-
-
-
-
-
 
 ## Generation Pipeline
 We propose a four-step procedure for data generation.
