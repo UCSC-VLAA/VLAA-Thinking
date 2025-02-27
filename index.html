@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VL-Thinking: An R1-Derived Visual Instruction Tuning Dataset for Thinkable LVLMs</title>
+
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./resources/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VL-Thinking: An R1-Derived Visual Instruction Tuning Dataset for Thinkable LVLMs</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <span><a href="https://g-h-chen.github.io/">Hardy Chen</a></span><sup>*</sup>,</span>
+            <span class="author-block">
+              <span><a href="https://www.haqtu.me/">Haoqin Tu</a></span><sup>1*</sup>,</span>
+
+            <span class="author-block">
+              <span><a href="https://lambert-x.github.io/">Hui Liu</a></span><sup>2</sup>,</span>
+            </span>
+
+            <span class="author-block">
+              <span><a href="https://oliverrensu.github.io/">Xianfeng Tang</a></span><sup>2</sup>,</span>
+            </span>
+
+            <span class="author-block">
+              <span><a href="https://yuyinzhou.github.io/">Yuyin Zhou</a></span><sup>1</sup>,</span>
+            </span>
+            <span class="author-block">
+              <span><a href="https://cihangxie.github.io/">Cihang Xie</a></span><sup>1</sup></span>
+            </span>
+          </div>
+          <br/>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>UC Santa Cruz, </span>
+            <span class="author-block"><sup>2</sup>Amazon Research, </span>
+            <!-- <span class="author-block"><sup>3</sup>JHU, </span> -->
+            
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2406.08478"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solidassasas fa-face-smiling-hands"></i>
+                    <img src="./resources/ar.svg" alt="img" style="width: 100%; height: 100%" /> 
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/UCSC-VLAA/Recap-DataComp-1B"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/UCSC-VLAA/Recap-DataComp-1B"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solidasasa fa-face-smiling-hands"></i>
+                   <img src="./resources/hg.svg" alt="img" style="width: 100%; height: 100%" /> 
+                  </span>
+                   <span>Recap DataComp-1B Data</span>
+                  </a>
+                </span>
+
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/UCSC-VLAA/Recap-COCO-30K"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solidasasa fa-face-smiling-hands"></i>
+                   <img src="./resources/hg.svg" alt="img" style="width: 100%; height: 100%" /> 
+                  </span>
+                   <span>Recap COCO-30K Data</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                <a href="https://huggingface.co/tennant/llava-llama-3-8b-hqedit"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solidasasa fa-face-smiling-hands"></i>
+                   <img src="./resources/gr.svg" alt="img" style="width: 100%; height: 100%" /> 
+                  </span>
+                   <span>Recaption Model</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                <a href="https://huggingface.co/UCSC-VLAA/ViT-L-16-HTxt-Recap-CLIP"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solidasasa fa-face-smiling-hands"></i>
+                   <img src="./resources/gr.svg" alt="img" style="width: 100%; height: 100%" /> 
+                  </span>
+                   <span>Recap-CLIP</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solidasasa fa-face-smiling-hands"></i>
+                   <img src="./resources/gr.svg" alt="img" style="width: 100%; height: 100%" /> 
+                  </span>
+                   <span>Recap-DiT (Incoming)</span>
+                  </a>
+                </span>
+                <!-- <span class="link-block">
+                  <a href="https://huggingface.co/spaces/LAOS-Y/HQEdit"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fa-solidassasas fa-face-smiling-hands"></i>
+                      <img src="./resources/gr.svg" alt="img" style="width: 100%; height: 100%" /> 
+                    </span>
+                    <span>Demo</span>
+                    </a>
+                  </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="hero teaser">
+  <div class="container">
+    <div class="hero-body", style="text-align: center;">
+      <img src="./resources/recap_front.jpg" alt="alt text"
+                        style="width: 50%; object-fit: cover; max-width:50%;"></a>
+      <h2 class="subtitle has-text-centered">
+        Examples of the original caption and our recaption in DataComp-1B, and the word distributions.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+<!-- <section class="section">
+  <div class="container ">
+    <div class="hero-body">
+      <center><h2 class="title is-3">Demo</h2></center>
+  <iframe src="https://laos-y-hqedit.hf.space" frameborder="0" width="100%" height="1000"></iframe>
+</div>
+</div>
+</section> -->
+
+
+
+<!-- Abstract. -->
+<!-- <section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Web-crawled image-text pairs are inherently noisy. Prior studies demonstrate that semantically aligning and enriching textual descriptions of these pairs can significantly enhance model training across various vision-language tasks, particularly text-to-image generation. However, large-scale investigations in this area remain predominantly closed-source. Our paper aims to bridge this community effort, leveraging the powerful and <i>open-sourced</i> LLaMA-3, a GPT-4 level LLM. Our recaptioning pipeline is simple: first, we fine-tune a LLaMA-3-8B powered LLaVA-1.5 and then employ it to recaption ~1.3 billion images from the DataComp-1B dataset. Our empirical results confirm that this enhanced dataset, Recap-DataComp-1B, offers substantial benefits in training advanced vision-language models.  For discriminative models like CLIP, we observe enhanced zero-shot performance in cross-modal retrieval tasks.  For generative models like text-to-image Diffusion Transformers, the generated images exhibit a significant improvement in alignment with users' text instructions, especially in following complex queries. We release this dataset publicly at <a
+                href="https://huggingface.co/datasets/UCSC-VLAA/Recap-DataComp-1B">https://huggingface.co/datasets/UCSC-VLAA/Recap-DataComp-1B</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+<!--/ Abstract. -->
+
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Generation Pipeline</h2>
+            <div class="content has-text-justified">
+              <center><img class="center" src="./assets/generation_pipeline.png" width="100%"></center>
+              <p>
+                <strong style="font-weight: 900">Pipeline Overview.</strong>
+                We propose a four-step procedure for data generation: <b>Captioning</b>, <b>Visual-Language CoT Generation</b>, <b>Answer Rewriting</b>,  <b></b>Answer Verification</b>.          </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="section">
+        <div class="container">
+          <h2 class="title is-3 has-text-centered">Examples</h2>
+          <div class="tabs is-centered">
+            <ul>
+              <li class="is-active" onclick="showTab(event, 'pdf-a')"><a>CLEVR-MATH</a></li>
+              <li onclick="showTab(event, 'pdf-b')"><a>GeoQA</a></li>
+              <li onclick="showTab(event, 'pdf-c')"><a>Synthesis</a></li>
+              <li onclick="showTab(event, 'pdf-d')"><a>ArxivQA</a></li>
+              <li onclick="showTab(event, 'pdf-e')"><a>ALLaVA-LAION</a></li>
+            </ul>
+          </div>
+          <div class="content has-text-centered">
+            <iframe id="pdf-a" class="pdf-viewer" src="./assets/examples/vl-thinking3.pdf" width="80%" height="500px"></iframe>
+            <iframe id="pdf-b" class="pdf-viewer is-hidden" src="./assets/examples/vl-thinking1.pdf" width="80%" height="500px"></iframe>
+            <iframe id="pdf-c" class="pdf-viewer is-hidden" src="./assets/examples/vl-thinking2.pdf" width="80%" height="500px"></iframe>
+            <iframe id="pdf-d" class="pdf-viewer is-hidden" src="./assets/examples/vl-thinking4.pdf" width="80%" height="500px"></iframe>
+            <iframe id="pdf-e" class="pdf-viewer is-hidden" src="./assets/examples/vl-thinking5.pdf" width="80%" height="500px"></iframe>
+          </div>
+        </div>
+      </section>
+      
+      <script>
+        function showTab(event, tabId) {
+          document.querySelectorAll('.pdf-viewer').forEach(pdf => pdf.classList.add('is-hidden'));
+          document.getElementById(tabId).classList.remove('is-hidden');
+          
+          document.querySelectorAll('.tabs ul li').forEach(tab => tab.classList.remove('is-active'));
+          event.currentTarget.classList.add('is-active');
+        }
+      </script>
+      
+      <style>
+        .is-hidden {
+          display: none;
+        }
+        .tabs ul li a {
+          cursor: pointer;
+        }
+      </style>
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <section class="section">
+            <div class="container">
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                  <h2 class="title is-3">Acknowledge</h2>
+                  <div class="content has-text-justified">
+                    This work is partially supported by a gift from Adobe, TPU Research Cloud (TRC) program, Google Cloud Research Credits program, AWS Cloud Credit for Research program, Edinburgh International Data Facility (EIDF) and the Data-Driven Innovation Programme at the University of Edinburgh.
+                  </div>
+                </div>
+              </div>
+            </section> -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@misc{vl-thinking2025,
+    title={VL-Thinking: An R1-Derived Visual Instruction Tuning Dataset for Thinkable LVLMs},
+    author={Hardy Chen and Haoqin Tu and Hui Liu and Xianfeng Tang and Yuyin Zhou and Cihang Xie},
+    year = {2025},
+    publisher = {GitHub},
+    journal = {GitHub repository},
+    howpublished = {\url{https://github.com/UCSC-VLAA/VL-Thinking}},
+    }
+    </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Based on the following <a href="http://nerfies.github.io">template</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
