@@ -203,11 +203,11 @@ If you find our data useful, please consider citing our work! We are [VLAA](http
 
 ```
 @misc{vl-thinking2025,
-  title={VL-Thinking: An R1-Derived Visual Instruction Tuning Dataset for Thinkable LVLMs},
-  author={Hardy Chen and Haoqin Tu and Hui Liu and Xianfeng Tang and Yuyin Zhou and Cihang Xie},
-  year = {2025},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/UCSC-VLAA/VL-Thinking}},
-}
+    title={VL-Thinking: An R1-Derived Visual Instruction Tuning Dataset for Thinkable LVLMs},
+    author={Hardy Chen and Haoqin Tu and Hui Liu and Xianfeng Tang and Xinya Du and Yuyin Zhou and Cihang Xie},
+    year = {2025},
+    publisher = {GitHub},
+    journal = {GitHub repository},
+    howpublished = {\url{https://github.com/UCSC-VLAA/VL-Thinking}},
+    }
 ```
