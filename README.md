@@ -190,6 +190,10 @@ Check more examples [here](https://UCSC-VLAA.github.io/VL-Thinking).
   - [ ] GRPO on closed-end VQA data (7B, 32B models)
 
 
+## Acknowledgement
+We thank the Microsoft Accelerate Foundation Models Research Program for supporting our computing needs.
+
+
 ## Contributors 📝
 [Hardy Chen*](https://g-h-chen.github.io/), [Haoqin Tu*](https://www.haqtu.me/), [Hui Liu](https://layneins.github.io/), [Xianfeng Tang](https://xta.ng/)
 
