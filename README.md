@@ -197,7 +197,7 @@ We thank the Microsoft Accelerate Foundation Models Research Program for support
 ## Contributors 📝
 [Hardy Chen*](https://g-h-chen.github.io/), [Haoqin Tu*](https://www.haqtu.me/), [Hui Liu](https://layneins.github.io/), [Xianfeng Tang](https://xta.ng/)
 
-Advising: [Yuyin Zhou](https://yuyinzhou.github.io/), [Cihang Xie](https://cihangxie.github.io/)
+Advising: [Xinya Du](https://xinyadu.github.io/), [Yuyin Zhou](https://yuyinzhou.github.io/), [Cihang Xie](https://cihangxie.github.io/)
 
 If you find our data useful, please consider citing our work! We are [VLAA](https://ucsc-vlaa.github.io/) from University of California, Santa Cruz.
 
