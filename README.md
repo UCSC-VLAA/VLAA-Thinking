@@ -1,75 +1,178 @@
 
-# VL-Thinking: An R1-Derived Visual Instruction Tuning Dataset for Thinkable LVLMs
+# SFT or RL? An Early Investigation into Training R1-Like Reasoning Large Vision-Language Models
 
 
-<p align="left">
-  🌐 <a href="https://ucsc-vlaa.github.io/VL-Thinking/" target="_blank">Project Page</a>  • 💻  <a href="https://github.com/UCSC-VLAA/VL-Thinking" target="_blank">Code</a>  • 🤔 <a href="https://huggingface.co/datasets/UCSC-VLAA/VL-Thinking" target="_blank">Dataset</a> 
+<p align="center">
+  🌐 <a href="https://ucsc-vlaa.github.io/VLAA-Thinking/" target="_blank">Project Page</a>  
+  • <img src="./assets/ar.svg" alt="Arxiv Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
+  <a href="./assets/VLAA-Thinker.pdf" target="_blank">Arxiv</a>  
+  • 💻  <a href="https://github.com/UCSC-VLAA/VLAA-Thinking" target="_blank">Code</a>  
+
+</p>
+
+<p align="center">
+  <img src="./assets/hg.svg" alt="Hugging Face Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
+  <a href="https://huggingface.co/collections/UCSC-VLAA/vlaa-thinker-67eda033419273423d77249e" target="_blank">VLAA-Thinker Family</a>  
+  • 🤔 <a href="https://huggingface.co/datasets/UCSC-VLAA/VLAA-Thinking" target="_blank">VLAA-Thinking Dataset</a>  
+  <!-- •   <img src="./assets/hg.svg" alt="Hugging Face Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
+  <a href="https://huggingface.co/UCSC-VLAA/VLAA-Thinker-Qwen2VL-7B-Zero" target="_blank">VLAA-Thinker-Qwen2VL-7B-Zero</a>    -->
+
+</p>
+
+<p align="center">
+  <img src="./assets/hg.svg" alt="Hugging Face Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
+  <a href="https://huggingface.co/UCSC-VLAA/VLAA-Thinker-Qwen2.5VL-3B" target="_blank"><b>VLAA-Thinker-Qwen2.5-3B</b></a>   
+  •   <img src="./assets/hg.svg" alt="Hugging Face Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
+  <a href="https://huggingface.co/UCSC-VLAA/VLAA-Thinker-Qwen2.5VL-7B" target="_blank"><b>VLAA-Thinker-Qwen2.5-7B</b></a>   
 </p>
 
 
 
+
+<!-- <p align="center">
+  <img src="./assets/hg.svg" alt="Hugging Face Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
+  <a href="https://huggingface.co/UCSC-VLAA/VLAA-Thinker-Qwen2VL-2B" target="_blank">VLAA-Thinker-Qwen2VL-2B</a>   
+  •   <img src="./assets/hg.svg" alt="Hugging Face Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
+  <a href="https://huggingface.co/UCSC-VLAA/VLAA-Thinker-Qwen2VL-7B-Zero" target="_blank">VLAA-Thinker-Qwen2VL-7B-Zero</a>   
+  •   <img src="./assets/hg.svg" alt="Hugging Face Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
+  <a href="https://huggingface.co/UCSC-VLAA/VLAA-Thinker-Qwen2VL-7B" target="_blank">VLAA-Thinker-Qwen2VL-7B</a>   
+</p> -->
+Both **VLAA-Thinker-Qwen2.5-3B** and **VLAA-Thinker-Qwen2.5-7B** achieve **SOTA** performance on [OpenCompass Multimodal Reasoning Leaderboard](https://rank.opencompass.org.cn/leaderboard-multimodal-reasoning/?m=REALTIME) as of April 7th, 2025.
+<img src="assets/opencompass_4b_box.png" width = "640" alt="pipeline" align=center />
+
+-----
+
+<img src="assets/opencompass_7b_box.png" width = "640" alt="pipeline" align=center />
+
+
+
+
 ## Contents
+- [Quick Start 🚀](#quick-start-🚀)
+- [Dataset Generation Pipeline 🏭](#vlaa-thinking-data-generation-🏭)
 - [Dataset Card 📚](#dataset-card-📚)
-- [Generation Pipeline 🚰](#generation-pipeline-🚰)
-- [Examples](#examples)
-- [Ongoing](#ongoing)
-- [Contributors 📝](#contributors-📝)
+- [Examples 📝](#examples-📝)
+- [Contributors 🙌](#contributors-🙌)
+
+
+## Quick Start 🚀
+### Inference
+Run `python inference.py`. Note that our model is trained with a system prompt. Please ensure that it is included for inference.
+
+
+### Dataset Download
+Run `bash ./utils/download_dataset.sh`. Specify the dataset root with absolute path. The dataset should be ordered as follows:
+```
+├── train-grpo.json
+├── train-sft.json
+└── images
+    ├── allava_laion
+    ├── arxivqa
+    ├── chartqa
+    ├── clevr_math
+    ├── coco
+    │   └── train2017
+    ├── docvqa
+    ├── geoqa170k
+    ├── synthesis
+    ├── vg
+    │   ├── VG_100K
+    │   └── VG_100K_2
+    └── vizwiz
+```
+### Training
+Code coming soon!
+
+
+## VLAA-Thinking Data Generation 🏭
+<img src="assets/data_generation.png" width = "640" alt="pipeline" align=center />
+
+<details> <summary><strong>Step 1: Metadata Collection</strong></summary>
+We gather metadata from 9 distinct vision-language datasets, each comprising either closed- or open-ended visual questions. Unique images are sampled and processed through our comprehensive pipeline from datasets including CLEVR-Math, Math PUMA, ArxivQA, DocVQA, VizWiz, and ALLaVA. We directly utilize COCO and VisualGenome data as provided by LLaVA-CoT. Note that GeoQA170K is included exclusively in the RL dataset due to captioning hallucination challenges. Dataset statistics are summarized in the provided table.
+
+</details> 
+
+<details> <summary><strong>Step 2: Visual Captioning and Additional Context</strong></summary>
+Each datapoint begins with an image-question-answer triplet. To effectively connect visual content with textual reasoning, we generate detailed, structured captions for each image using GPT-4o. Additionally, we leverage dataset-specific annotations to enrich the visual understanding: CLEVR-Math includes scene synthesis instructions, Math PUMA provides descriptive textual math problems, and ALLaVA-LAION offers carefully verified GPT-4V captions (prompt [here](assets/prompts/1.captioning.txt)).
+
+</details>
+
+<details> <summary><strong>Step 3: Reasoning Answer Distillation</strong></summary>
+Utilizing the text-only reasoning model DeepSeek-R1, we generate structured and logical reasoning steps alongside final answers. The model reasons based on image captions, visual questions, and supplementary dataset-specific information, outputting a step-by-step rationale enclosed by explicit <think> tags for clarity (prompt [here](assets/prompts/2.r1cot.txt)).
+
+</details> 
+
+<details> <summary><strong>Step 4: Answer Refinement and Rewriting</strong></summary>
+To ensure clarity, consistency, and modality independence, we refine the reasoning outputs through a rewriting module powered by GPT-3.5-turbo. This refinement removes unnecessary modality-specific phrases and standardizes the answers. Samples exhibiting large textual deviations post-rewriting (more than 15 words difference) are filtered out to preserve minimal textual alteration (prompt [here](assets/prompts/3.rewrite.txt)).
+
+</details> 
+
+<details> <summary><strong>Step 5: Automated Verification</strong></summary>
+We verify the rewritten answers against the original ground-truth answers through an automated validation module. Only samples with verified correct answers are retained in the final training set, ensuring accuracy and logical coherence (prompt [here](assets/prompts/4.verify.txt)).
+
+</details> 
+
+<details> <summary><strong>Step 6: Curating Data Splits for SFT and RL</strong></summary>
+We partition the dataset into two mutually exclusive subsets tailored specifically for supervised fine-tuning (SFT) and reinforcement learning (RL). Following insights from recent studies highlighting RL's strength in deeper reasoning challenges, we use explicit self-reflective cues (termed "aha moments") in reasoning as a proxy for difficulty. Simpler examples without these cues populate the SFT set, while more challenging examples containing reflective "aha moments" form the dedicated RL dataset.
+
+</details>
+
+
+
+
+
+
+
+
+<!-- ### Captioning
+To enable the text-only R1 model to understand visual content, we need a detailed caption for each image. In our experiments: 
+1) For datasets with captions included (ALLaVA), we use the original captions;
+2) For datasets containing *textual questions* that are equivalent to *image + visual questions* (Synthesis), we skip this step.
+3) For the remaining datasets (CLEVR-Math, ArxivQA, GeoQA170K) which only contain images and VQAs, we generate a detailed caption for each image with **GPT-4o** (prompt [here](assets/prompts/1.captioning.txt)).  -->
+
+<!-- ### Visual-Language CoT Generation
+In this step, we generate the Vision-Language CoT data from **R1**.
+1) For datasets with textual questions (Synthesis), we prompt R1 with only the textual questions without any additional instructions/information. 
+2) For the other datasets, we prompt R1 with a caption and its associated visual question. We also intruct R1 not to output terms like "based on the caption" in its response because there's no caption presented during visual instruction tuning (prompt [here](assets/prompts/2.r1cot.txt)). -->
+
+
+
+<!-- ### Answer Rewriting
+After obtaining answers with CoT from R1, we observe that some answers contain undesired expressions, despite R1 instructed not to do so. 
+Therefore, we use **GPT-4o** as a content rewriter to fix the errors while keeping everything else unchanged (prompt [here](assets/prompts/3.rewrite.txt)).  -->
+
+
+
+<!-- ### Answer Verification
+The last step is to verify the correctness of generated responses. We leverage **GPT-3.5-Turbo** to compare the generated content with groundtruth from the original dataset (prompt [here](assets/prompts/4.verify.txt)). -->
+
+
+
 
 
 ## Dataset Card 📚
 
-The first version consists of samples from the following datasets:
+
+| Name | Data Type | # Original | # Pipeline | # Final SFT | **# Final RL** |
+| --- | --- | --- | --- | --- | --- |
+| <a href="https://huggingface.co/datasets/lmms-lab/LLaVA-OneVision-Data/tree/main/CLEVR-Math(MathV360K)" target="_blank">CLEVR_Math</a> | Closed-end | 35,000 | 28,018 | 5,923 | **2,000** |
+| <a href="https://huggingface.co/datasets/lmms-lab/LLaVA-OneVision-Data/tree/main/geo170k(qa)" target="_blank">GeoQA170K</a> | Closed-end | - | - | - | **6,499** |
+| <a href="https://huggingface.co/datasets/Math-PUMA/Math-PUMA_Data_Stage2/tree/main/Synthesis" target="_blank">Math PUMA</a> | Closed-end | 30,000 | 26,672 | 19,258 | **6,696** |
+| <a href="https://huggingface.co/datasets/MMInstruction/ArxivQA?row=0" target="_blank">ArxivQA</a> | Closed-end | 54,399 | 51,348 | 34,604 | **1,000** |
+| <a href="https://www.docvqa.org/datasets" target="_blank">DocVQA</a> | Closed-end | 10,194 | 8,206 | 4,897 | **1,000** |
+| <a href="https://vizwiz.org/tasks-and-datasets/vqa/" target="_blank">VizWiz</a> | Closed-end | 20,523 | 6,528 | 4,266 | **1,000** |
+| <a href="https://huggingface.co/datasets/FreedomIntelligence/ALLaVA-4V/tree/main/allava_laion" target="_blank">ALLaVA-LAION</a> | Open-end | 47,066 | 18,123 | 10,496 | **3,000** |
+| <a href="https://huggingface.co/datasets/Xkev/LLaVA-CoT-100k" target="_blank">LLaVA-CoT-COCO</a> | Closed-end | 3,000 | 3,000 | 8,727 | **2,000** |
+| <a href="https://huggingface.co/datasets/Xkev/LLaVA-CoT-100k" target="_blank">LLaVA-CoT-VisualGenome</a> | Closed-end | 3,000 | 3,000 | 38,242 | **2,000** |
+| Total | Closed- & Open-end | 203,182 | 144,895 | 126,413 | **25,195** |
 
 
-
-| Name                   | # original samples | # rewritten | **# verified** |
-|------------------------|-----------------------|----------------------|----------------------------------|
-| [CLEVR_Math](https://huggingface.co/datasets/lmms-lab/LLaVA-OneVision-Data/tree/main/CLEVR-Math(MathV360K))            | 15,000                   |      14,748                | **9,771**                            |
-| [GeoQA170K](https://huggingface.co/datasets/lmms-lab/LLaVA-OneVision-Data/tree/main/geo170k(qa))             | 14,019                   |        11,745              | **7,794**                             |
-| [Synthesis](https://huggingface.co/datasets/Math-PUMA/Math-PUMA_Data_Stage2/tree/main/Synthesis) | 29,998                | 29,998              | **26,672**                       |
-| [ArxivQA](https://huggingface.co/datasets/MMInstruction/ArxivQA?row=0)               | 14,992                   |        14,810              | **14,109**                             |
-| [ALLaVA-LAION](https://huggingface.co/datasets/FreedomIntelligence/ALLaVA-4V/tree/main/allava_laion)          | 36,977                | 30,191              | **18,123**              |
-| **Total**             |                        |                      | **76,469**                         |
-
-These datasets cover questions from different domains (math, general), and questions of different types (close-ended, open-ended). For datasets with duplicated images, we ensure that all images are unique for higher diversity.
-
-
-
-
-
-
-## Generation Pipeline 🚰
-We propose a four-step procedure for data generation.
-<img src="assets/generation_pipeline.png" width = "640" alt="pipeline" align=center />
-
-### Captioning
-To enable the text-only R1 model to understand visual content, we need a detailed caption for each image. In our experiments: 
-1) For datasets with captions included (ALLaVA), we use the original captions;
-2) For datasets containing *textual questions* that are equivalent to *image + visual questions* (Synthesis), we skip this step.
-3) For the remaining datasets (CLEVR-Math, ArxivQA, GeoQA170K) which only contain images and VQAs, we generate a detailed caption for each image with **GPT-4o** (prompt [here](assets/prompts/1.captioning.txt)). 
-<!-- For CLEVR-Math, we find that including -->
-
-### Visual-Language CoT Generation
-In this step, we generate the Vision-Language CoT data from **R1**.
-1) For datasets with textual questions (Synthesis), we prompt R1 with only the textual questions without any additional instructions/information. 
-
-2) For the other datasets, we prompt R1 with a caption and its associated visual question. We also intruct R1 not to output terms like "based on the caption" in its response because there's no caption presented during visual instruction tuning (prompt [here](assets/prompts/2.r1cot.txt)).
-
-
-
-### Answer Rewriting
-After obtaining answers with CoT from R1, we observe that some answers contain undesired expressions, despite R1 instructed not to do so. 
-Therefore, we use **GPT-4o** as a content rewriter to fix the errors while keeping everything else unchanged (prompt [here](assets/prompts/3.rewrite.txt)). 
-
-
-
-### Answer Verification
-The last step is to verify the correctness of generated responses. We leverage **GPT-3.5-Turbo** to compare the generated content with groundtruth from the original dataset (prompt [here](assets/prompts/4.verify.txt)).
+**Data statistics of VLAA-Thinking**. We present the original volume of metadata (<span>#Original</span>), the data size after the distillation pipeline (<span>#Pipeline</span>), the size of sampled examples for SFT (<span>#Final SFT</span>) and RL (<span>#Final RL</span>), respectively. Note that we only use GeoQA170K with verifiable answers for the RL split.
 
 
 
 
-## Examples
+## Examples 📝
 
 
 <details><summary>CLEVR-Math</summary>
@@ -175,11 +278,11 @@ The last step is to verify the correctness of generated responses. We leverage *
 
 We also compare answers generated by Deepseek-R1 with the original answer. 
 Check more examples [here](https://UCSC-VLAA.github.io/VL-Thinking).
-<img src="assets/examples/vl-thinking1.png"  align=center  width=60% />
+<img src="assets/examples/vl-thinking2.png"  align=center  width=60% />
 
 
 
-## Ongoing
+<!-- ## Ongoing
 
 - Dataset Scale Up:
   - [ ] More VQA datasets (close-end)
@@ -187,15 +290,15 @@ Check more examples [here](https://UCSC-VLAA.github.io/VL-Thinking).
 
 - Model Training:
   - [ ] SFT on long CoT data (7B, 32B models)
-  - [ ] GRPO on closed-end VQA data (7B, 32B models)
+  - [ ] GRPO on closed-end VQA data (7B, 32B models) -->
 
 
-## Acknowledgement
+## Acknowledgement 🤝
 We thank the Microsoft Accelerate Foundation Models Research Program for supporting our computing needs.
 
 
-## Contributors 📝
-[Hardy Chen*](https://g-h-chen.github.io/), [Haoqin Tu*](https://www.haqtu.me/), [Hui Liu](https://layneins.github.io/), [Xianfeng Tang](https://xta.ng/)
+## Contributors 🙌
+[Hardy Chen*](https://g-h-chen.github.io/), [Haoqin Tu*](https://www.haqtu.me/), [Fali Wang](https://fairyfali.github.io/), [Hui Liu](https://layneins.github.io/), [Xianfeng Tang](https://xta.ng/)
 
 Advising: [Xinya Du](https://xinyadu.github.io/), [Yuyin Zhou](https://yuyinzhou.github.io/), [Cihang Xie](https://cihangxie.github.io/)
 
@@ -203,11 +306,11 @@ If you find our data useful, please consider citing our work! We are [VLAA](http
 
 ```
 @misc{vl-thinking2025,
-    title={VL-Thinking: An R1-Derived Visual Instruction Tuning Dataset for Thinkable LVLMs},
-    author={Hardy Chen and Haoqin Tu and Hui Liu and Xianfeng Tang and Xinya Du and Yuyin Zhou and Cihang Xie},
+    title={SFT or RL? An Early Investigation into Training R1-Like Reasoning Large Vision-Language Models},
+    author={Hardy Chen and Haoqin Tu and Fali Wang and Hui Liu and Xianfeng Tang and Xinya Du and Yuyin Zhou and Cihang Xie},
     year = {2025},
     publisher = {GitHub},
     journal = {GitHub repository},
-    howpublished = {\url{https://github.com/UCSC-VLAA/VL-Thinking}},
+    howpublished = {\url{https://github.com/UCSC-VLAA/VLAA-Thinking}},
     }
 ```
