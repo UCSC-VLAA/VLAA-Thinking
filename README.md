@@ -52,6 +52,7 @@ Both **VLAA-Thinker-Qwen2.5-3B** and **VLAA-Thinker-Qwen2.5-7B** achieve **SOTA*
 - [Dataset Generation Pipeline 🏭](#vlaa-thinking-data-generation-🏭)
 - [Dataset Card 📚](#dataset-card-📚)
 - [Examples 📝](#examples-📝)
+- [GRPO with Mixed Reward 💡](#grpo-with-mixed-reward-💡)
 - [Contributors 🙌](#contributors-🙌)
 
 
@@ -93,22 +94,23 @@ We gather metadata from 9 distinct vision-language datasets, each comprising eit
 </details> 
 
 <details> <summary><strong>Step 2: Visual Captioning and Additional Context</strong></summary>
-Each datapoint begins with an image-question-answer triplet. To effectively connect visual content with textual reasoning, we generate detailed, structured captions for each image using GPT-4o. Additionally, we leverage dataset-specific annotations to enrich the visual understanding: CLEVR-Math includes scene synthesis instructions, Math PUMA provides descriptive textual math problems, and ALLaVA-LAION offers carefully verified GPT-4V captions (prompt [here](assets/prompts/1.captioning.txt)).
+Each datapoint begins with an image-question-answer triplet. To effectively connect visual content with textual reasoning, we generate detailed, structured captions for each image using GPT-4o. Additionally, we leverage dataset-specific annotations to enrich the visual understanding: CLEVR-Math includes scene synthesis instructions, Math PUMA provides descriptive textual math problems, and ALLaVA-LAION offers carefully verified GPT-4V captions 
+(prompt <a href="assets/prompts/1.captioning.txt" target="_blank">here</a>).
 
 </details>
 
 <details> <summary><strong>Step 3: Reasoning Answer Distillation</strong></summary>
-Utilizing the text-only reasoning model DeepSeek-R1, we generate structured and logical reasoning steps alongside final answers. The model reasons based on image captions, visual questions, and supplementary dataset-specific information, outputting a step-by-step rationale enclosed by explicit <think> tags for clarity (prompt [here](assets/prompts/2.r1cot.txt)).
+Utilizing the text-only reasoning model DeepSeek-R1, we generate structured and logical reasoning steps alongside final answers. The model reasons based on image captions, visual questions, and supplementary dataset-specific information, outputting a step-by-step rationale enclosed by explicit <think> tags for clarity (prompt <a href="assets/prompts/2.r1cot.txt" target="_blank">here</a>).
 
 </details> 
 
 <details> <summary><strong>Step 4: Answer Refinement and Rewriting</strong></summary>
-To ensure clarity, consistency, and modality independence, we refine the reasoning outputs through a rewriting module powered by GPT-3.5-turbo. This refinement removes unnecessary modality-specific phrases and standardizes the answers. Samples exhibiting large textual deviations post-rewriting (more than 15 words difference) are filtered out to preserve minimal textual alteration (prompt [here](assets/prompts/3.rewrite.txt)).
+To ensure clarity, consistency, and modality independence, we refine the reasoning outputs through a rewriting module powered by GPT-3.5-turbo. This refinement removes unnecessary modality-specific phrases and standardizes the answers. Samples exhibiting large textual deviations post-rewriting (more than 15 words difference) are filtered out to preserve minimal textual alteration (prompt <a href="assets/prompts/3.rewrite.txt" target="_blank">here</a>).
 
 </details> 
 
 <details> <summary><strong>Step 5: Automated Verification</strong></summary>
-We verify the rewritten answers against the original ground-truth answers through an automated validation module. Only samples with verified correct answers are retained in the final training set, ensuring accuracy and logical coherence (prompt [here](assets/prompts/4.verify.txt)).
+We verify the rewritten answers against the original ground-truth answers through an automated validation module. Only samples with verified correct answers are retained in the final training set, ensuring accuracy and logical coherence (prompt <a href="assets/prompts/4.verify.txt" target="_blank">here</a>).
 
 </details> 
 
@@ -291,6 +293,12 @@ Check more examples [here](https://UCSC-VLAA.github.io/VL-Thinking).
 - Model Training:
   - [ ] SFT on long CoT data (7B, 32B models)
   - [ ] GRPO on closed-end VQA data (7B, 32B models) -->
+
+## GRPO with Mixed Reward 💡
+Our proposed framework comprises 2 reward formats (rule-based and open-ended) and 5 types of verifiable rewards (digit, MCQ, math, IoU and general reasoning).
+See more details in paper.
+<img src="assets/mixed_reward.png"  align=center  width=60% />
+
 
 
 ## Acknowledgement 🤝
