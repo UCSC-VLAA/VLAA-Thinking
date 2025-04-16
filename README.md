@@ -64,8 +64,8 @@ Run `python inference.py`. Note that our model is trained with a system prompt. 
 ### Dataset Download
 Run `bash ./utils/download_dataset.sh`. Specify the dataset root with absolute path. The dataset should be ordered as follows:
 ```
-├── train-grpo.json
-├── train-sft.json
+├── VLAA-Thinking-SFT-126K.json
+├── VLAA-Thinking-GRPO-25K.json
 └── images
     ├── allava_laion
     ├── arxivqa

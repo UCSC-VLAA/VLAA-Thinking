@@ -42,7 +42,7 @@ unzip images2.zip
 
 # annotation
 cd $dataset_root
-wget -O "train-sft.json" -c "https://huggingface.co/datasets/UCSC-VLAA/VLAA-Thinking/resolve/main/train-sft.json?download=true"
-wget -O "train-grpo.json" -c "https://huggingface.co/datasets/UCSC-VLAA/VLAA-Thinking/resolve/main/train-grpo.json?download=true"
+wget -O "VLAA-Thinking-SFT-126K.json" -c "https://huggingface.co/datasets/UCSC-VLAA/VLAA-Thinking/resolve/main/VLAA-Thinking-SFT-126K.json?download=true"
+wget -O "VLAA-Thinking-GRPO-25K.json" -c "https://huggingface.co/datasets/UCSC-VLAA/VLAA-Thinking/resolve/main/VLAA-Thinking-GRPO-25K.json?download=true"
 
 
