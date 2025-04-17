@@ -313,12 +313,13 @@ Advising: [Xinya Du](https://xinyadu.github.io/), [Yuyin Zhou](https://yuyinzhou
 If you find our data useful, please consider citing our work! We are [VLAA](https://ucsc-vlaa.github.io/) from University of California, Santa Cruz.
 
 ```
-@misc{vl-thinking2025,
-    title={SFT or RL? An Early Investigation into Training R1-Like Reasoning Large Vision-Language Models},
-    author={Hardy Chen and Haoqin Tu and Fali Wang and Hui Liu and Xianfeng Tang and Xinya Du and Yuyin Zhou and Cihang Xie},
-    year = {2025},
-    publisher = {GitHub},
-    journal = {GitHub repository},
-    howpublished = {\url{https://github.com/UCSC-VLAA/VLAA-Thinking}},
-    }
+@misc{chen2025sftrlearlyinvestigation,
+      title={SFT or RL? An Early Investigation into Training R1-Like Reasoning Large Vision-Language Models}, 
+      author={Hardy Chen and Haoqin Tu and Fali Wang and Hui Liu and Xianfeng Tang and Xinya Du and Yuyin Zhou and Cihang Xie},
+      year={2025},
+      eprint={2504.11468},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2504.11468}, 
+}
 ```
