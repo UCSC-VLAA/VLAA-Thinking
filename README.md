@@ -5,7 +5,7 @@
 <p align="center">
   🌐 <a href="https://ucsc-vlaa.github.io/VLAA-Thinking/" target="_blank">Project Page</a>  
   • <img src="./assets/ar.svg" alt="Arxiv Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
-  <a href="./assets/VLAA-Thinker.pdf" target="_blank">Arxiv</a>  
+  <a href="https://arxiv.org/abs/2504.11468" target="_blank">Arxiv</a>  
   • 💻  <a href="https://github.com/UCSC-VLAA/VLAA-Thinking" target="_blank">Code</a>  
 
 </p>
