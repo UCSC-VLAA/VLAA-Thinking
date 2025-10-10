@@ -1,5 +1,5 @@
 
-# SFT or RL? An Early Investigation into Training R1-Like Reasoning Large Vision-Language Models
+# [TMLR 2025] SFT or RL? An Early Investigation into Training R1-Like Reasoning Large Vision-Language Models
 
 
 <p align="center">
