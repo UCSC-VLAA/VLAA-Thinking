@@ -37,7 +37,10 @@
   •   <img src="./assets/hg.svg" alt="Hugging Face Logo" style="height: 1em; vertical-align: middle; margin-right: 0.3em;">
   <a href="https://huggingface.co/UCSC-VLAA/VLAA-Thinker-Qwen2VL-7B" target="_blank">VLAA-Thinker-Qwen2VL-7B</a>   
 </p> -->
-Both **VLAA-Thinker-Qwen2.5-3B** and **VLAA-Thinker-Qwen2.5-7B** achieve **SOTA** performance on [OpenCompass Multimodal Reasoning Leaderboard](https://rank.opencompass.org.cn/leaderboard-multimodal-reasoning/?m=REALTIME) as of April 7th, 2025.
+
+[Oct.9 2025] "SFT or RL? An Early Investigation into Training R1-Like Reasoning Large Vision-Language Models" is accepted by TMLR!
+
+[Apr.7 2025] Both **VLAA-Thinker-Qwen2.5-3B** and **VLAA-Thinker-Qwen2.5-7B** achieve **SOTA** performance on [OpenCompass Multimodal Reasoning Leaderboard](https://rank.opencompass.org.cn/leaderboard-multimodal-reasoning/?m=REALTIME) as of April 7th, 2025.
 <img src="assets/opencompass_4b_box.png" width = "640" alt="pipeline" align=center />
 
 -----
